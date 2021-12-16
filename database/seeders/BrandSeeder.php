@@ -31,5 +31,11 @@ class BrandSeeder extends Seeder
         	'serial' => 'Android',
         	'gambar' => 'samsung.png',
         ]);
+
+        DB::table('brands')->insert([
+        	'nama' => 'Xiaomi',
+        	'serial' => 'Android',
+        	'gambar' => 'xiaomi.png',
+        ]);
     }
 }
