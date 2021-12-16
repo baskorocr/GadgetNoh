@@ -13,7 +13,7 @@
         .p{font-family: 'Times New Roman', Times, serif;
 
         font-size: 30px;
-        color: rgb(105, 214, 203);
+        color: rgb(0, 0, 0);
         
     }
 
@@ -23,17 +23,17 @@
         }
         .f{width: 400px;
         padding: 30px;}
-        .a{text-decoration: none;  color: rgb(105, 214, 203)}
+        .a{text-decoration: none;  color: rgb(0, 0, 0)}
         .t{margin-bottom: 20px;}
         .btn{background-color: rgb(105, 214, 203);
         color: black;}
     </style>
 </head>
 <body>
-   <div class="container d-flex justify-content-center mt-5">
+   <div class="container d-flex justify-content-center mt-3">
        <p class="p">GadgetNoh</p>
 </div>
-<div class="container d-flex justify-content-center mt-3 z" >
+<div class="container d-flex justify-content-center mt-2 mb-5 z" >
     
     <form class="f" method="POST" action="{{ route('login') }}">
         @csrf
@@ -42,7 +42,7 @@
               Masuk
             </div>
             <div class="col text-end">
-              <a href="" class="btn-btn-link a">Buat Akun</a> 
+              <a href="{{ route('register') }}" class="btn-btn-link a">Buat Akun</a> 
             </div>
         </div>
         
