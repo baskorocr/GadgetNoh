@@ -62,3 +62,8 @@
     color: black;
     font-weight: bold;
 }
+.footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
