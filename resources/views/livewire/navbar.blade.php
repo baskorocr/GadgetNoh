@@ -19,9 +19,9 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach ($brands as $brand)
-                                <a class="dropdown-item" href="#">{{$brand->nama}}</a>
+                                <a class="dropdown-item" href="{{route('products.brand',$brand->id)}}">{{$brand->nama}}</a>
                                 @endforeach
-                              <a class="dropdown-item" href="{{ url('product') }}">All Product</a>
+                              <a class="dropdown-item" href="{{ url('products') }}">All Product</a>
                             </div>
                           </li>
                     </ul>

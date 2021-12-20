@@ -7,7 +7,7 @@
                         <a href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        All Product
+                        {{$title}}
                     </li>
                 </ol>
             </nav>

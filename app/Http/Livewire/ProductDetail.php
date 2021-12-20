@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class ProductOppo extends Component
+class ProductDetail extends Component
 {
     public function render()
     {
-        return view('livewire.product-oppo');
+        return view('livewire.product-detail');
     }
 }
