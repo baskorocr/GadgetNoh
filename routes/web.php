@@ -17,4 +17,5 @@ Auth::routes();
 
 Route::get('/', \App\Http\Livewire\Home::class);
 Route::get('/product', \App\Http\Livewire\ProductIndex::class);
+Route::get('/oppo_product', \App\Http\Livewire\ProductOppo::class);
 

@@ -25,7 +25,7 @@
     border-color: rgb(105, 214, 203);
 }
 .judul h5{
-    margin-top: 4px;
+    margin-top: 5px;
     font-weight: bold;
     color:rgb(20, 20, 20);
 }
@@ -74,4 +74,9 @@
 .breadcrumb .active{
     font-weight: bold;
     color: black;
+}
+.z{
+   
+    margin-bottom: 10px;
+    margin-top: 5px
 }

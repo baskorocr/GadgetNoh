@@ -7,7 +7,7 @@
                         <a href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        All Product
+                        OPPO Product
                     </li>
                 </ol>
             </nav>
@@ -16,18 +16,7 @@
     <div class="best-product container mt-5">
         <div class="uni row mt-5">
            <div class="judul container">
-               <div class="row">
-                   <div class="col">
-                    <strong><h5>All Product</h5></strong>
-                   </div>
-                   <div class="col text-right z">
-                    <form class="form-inline my-2 my-lg-0 d-flex justify-content-end">
-                        <input wire:model='search' class="form-control mr-sm-2" type="search" placeholder="Cari disini..." aria-label="Search">
-                        
-                      </form>
-                   </div>
-               </div>
-              
+              <strong><h5>OPPO Product</h5></strong>
            </div>
            @foreach($products as $product)
            <div class="col-3">
