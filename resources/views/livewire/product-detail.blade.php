@@ -15,6 +15,17 @@
                 </ol>
             </nav>
         </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                @if(session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session('message')}}
+                </div>
+                @endif
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="card gambar-product">
@@ -74,11 +85,16 @@
                                         @enderror
                                 </td>
                             </tr>
+                            @if($jumlah_pesanan > 1)
+                            @else
                             <tr>
                                 <td colspan="3"><strong>Limited Edition</td>
                             </tr>
-                            @if($jumlah_pesanan > 1)
-                            @else
+                            <tr>
+                                <td>Harga Limited Edition</td>
+                                <td>:</td>
+                                <td>Rp.{{ number_format($product->harga_limitededition) }}</td>
+                            </tr>
                             <tr>
                             <td>Model</td>
                                 <td>:</td>

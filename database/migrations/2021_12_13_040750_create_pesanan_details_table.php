@@ -19,7 +19,7 @@ class CreatePesananDetailsTable extends Migration
             $table->integer('total_harga');
             $table->boolean('limitededition')->default(false);
             $table->string('model')->nullable();
-            $table->string('signature')->nullable();
+            $table->string('warna')->nullable();
             $table->integer('product_id');
             $table->integer('pesanan_id');
             $table->timestamps();
