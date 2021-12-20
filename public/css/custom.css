@@ -80,3 +80,9 @@
     margin-bottom: 10px;
     margin-top: 5px
 }
+
+.gambar-product {
+    background-color: #F1F1F1;
+    border-width: 0;
+    border-radius: 20px;
+}
