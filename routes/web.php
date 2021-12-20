@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', \App\Http\Livewire\Home::class);
+Route::get('/product', \App\Http\Livewire\ProductIndex::class);
+

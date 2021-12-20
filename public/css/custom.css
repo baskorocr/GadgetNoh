@@ -67,3 +67,11 @@
     bottom: 0px;
     width: 100%;
 }
+.breadcrumb{
+    background-color: transparent;
+    padding: 0cm;
+}
+.breadcrumb .active{
+    font-weight: bold;
+    color: black;
+}
