@@ -12,12 +12,13 @@
          </div>
          @foreach($brands as $brand)
          <div class="col">
-            <a href="{{route('products.brand',$brand->id)}}"></a>
+            <a href="{{route('products.brand',$brand->id)}}">
             <div class="card mt-3 mb-3">
                <div class="card-body text-center">
                   <img src="{{ url('asset/brand')}}/{{$brand->gambar}}" alt="" class="img-fluid">
                </div>
             </div>
+            </a>
          </div>
          @endforeach
       </div>
@@ -57,7 +58,7 @@
    <div class="container">
       <div class="row mt-2">
          <div class="col">
-         <center><a href="{{ url('product') }}" class="more">More Product...</a></center>
+         <center><a href="{{ url('products') }}" class="more">More Product...</a></center>
          </div>
       </div>
    </div>

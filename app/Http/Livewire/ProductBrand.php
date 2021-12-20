@@ -11,6 +11,7 @@ class ProductBrand extends Component
    public $search,$brands;
    protected $updateQueryString = ['search'];
    
+  
 
    public function mount($brandsId){
        $brandsDetail = Brand::find($brandsId);
@@ -24,7 +25,8 @@ class ProductBrand extends Component
         if($this->search){
             $products = Product::where('brand_id',$this->brands->id)->where('nama','like', '%'.$this->search.'%')->paginate(8);
         return view('livewire.product-index',[
-            'products' => $products
+            'products' => $products,
+            'title' => 'List Product '.$this->brands->nama
         ])
         ->extends('layouts.app')
         ->section('content');
