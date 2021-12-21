@@ -12,6 +12,7 @@ class ProductIndex extends Component
 
     public function render(Request $request)
      {
+        
         if($request->has('search')){
             $products = Product::where('nama','like', '%'.$request->search.'%')->paginate(8);
         }
