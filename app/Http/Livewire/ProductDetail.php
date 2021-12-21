@@ -65,7 +65,7 @@ class ProductDetail extends Component
             'warna' => $this->warna,
             'total_harga' => $total_harga
         ]);
-
+        $this->emit('masukKeranjang');
         session()->flash('message', 'Sukses masuk keranjang');
         return redirect()->back();
     }
