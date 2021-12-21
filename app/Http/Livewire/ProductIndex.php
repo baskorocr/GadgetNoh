@@ -4,36 +4,26 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Product;
-use App\Models\Brand;
+use Illuminate\Http\Request;
 
 class ProductIndex extends Component
 {
-   public $search;
-   protected $updateQueryString = ['search'];
-   public function updatingSearch(){
-    $this->reset();
-    }
+   
 
-    public function render()
+    public function render(Request $request)
      {
-        if($this->search){
-            $products = Product::where('nama','like', '%'.$this->search.'%')->paginate(8);
-        return view('livewire.product-index',[
-            'products' => $products,
-            'title' => 'All Product'
-        ])
-        ->extends('layouts.app')
-        ->section('content');
+        if($request->has('search')){
+            $products = Product::where('nama','like', '%'.$request->search.'%')->paginate(8);
         }
         else{
             $products = Product::paginate(8);
+        }
         return view('livewire.product-index',[
             'products' => $products,
             'title' => 'All Product'
         ])
         ->extends('layouts.app')
         ->section('content');
-        }
         
     }
 }

@@ -21,8 +21,8 @@
                     <strong><h5>All Product</h5></strong>
                    </div>
                    <div class="col text-right z">
-                    <form class="form-inline my-2 my-lg-0 d-flex justify-content-end">
-                        <input wire:model='search' class="form-control mr-sm-2" type="search" placeholder="Cari disini..." aria-label="Search">
+                    <form class="form-inline my-2 my-lg-0 d-flex justify-content-end" action='/products' method="GET">
+                        <input wire:model='search' class="form-control mr-sm-2" name="search" type="search" placeholder="Cari disini..." aria-label="Search">
                         
                       </form>
                    </div>
