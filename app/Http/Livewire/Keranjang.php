@@ -17,7 +17,10 @@ class Keranjang extends Component
         $pesananDetail = $p->total_harga;
         $d = pesanan::find($p->pesanan_id);
         $d -> total_harga = $d ->total_harga - $pesananDetail;
-        
+        if($d->total_harga == 0)
+        {
+            $d->delete();
+        }
         $d->update();
         $p->delete();
 
@@ -33,7 +36,7 @@ class Keranjang extends Component
         }
         else{
             $this->pesanan =  Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
-        if($this->pesanan){
+        if($this->pesanan != null){
             $this->pesanan_detail = PesananDetail::where('pesanan_id',$this->pesanan->id)->get();
             
         }
@@ -44,6 +47,7 @@ class Keranjang extends Component
     public function render()
     {
        $this->cek();  
+       
         
         return view('livewire.keranjang',[
             'pesanan'=> $this->pesanan,
