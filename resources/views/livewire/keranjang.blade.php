@@ -129,7 +129,7 @@
                                  
                              </td>
                             <td colspan="6" align="right" class="">
-                                <a href="" type="button" class="btn button1">Check Out</a>
+                                <a href="{{ route ('checkout') }}" type="button" class="btn button1">Check Out</a>
                             </td>
                            
                          </tr>
