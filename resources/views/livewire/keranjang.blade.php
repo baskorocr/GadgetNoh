@@ -34,10 +34,11 @@
                             <td>Gambar</td>
                             <td>Nama</td>
                             <td>Limited Edition</td>
+                            <td>Jumlah</td>
                             <td>Warna</td>
                             <td>Model</td>
                             <td><strong>Total Harga</strong></td>
-                            <td>Hapus</td>
+                          
                             
                         </tr>
                     </thead>
@@ -51,9 +52,13 @@
                             </td>
                             <td>
                                 {{$pesanan_details->product->nama}}
+                                <br>
+
+                                <a href="{{url('hapus')}}/{{$pesanan_details->id}}" type="button" class="btn btn-danger">hapus</a>
                             </td>
                             <td>
                                <?php 
+                            
                                 if(!$pesanan_details->limitededition)
                                 {
                                     echo "NO";
@@ -61,7 +66,11 @@
                                 else {
                                     echo "YES";
                                 }
+                               
                                ?>
+                            </td>
+                            <td>
+                                {{$pesanan_details->jumlah_pesanan}}
                             </td>
                             <td>
                                 {{$pesanan_details->warna}}
@@ -74,12 +83,55 @@
                             </strong>
                              
                             </td>
+                            
                         </tr>
-                        @empty
+                                                @empty
                         <tr>
                             <td colspan="7">Data Kosong</td>
                         </tr>
                         @endforelse
+                        <tr>
+                            <td colspan="7" align="right">
+                               <strong>Total Harga :
+                               </strong>
+                            </td>
+                            <td colspan="7">
+                                <strong>Rp. {{number_format($pesanan->total_harga)}} 
+                                </strong>
+                             </td>
+
+                         </tr>
+                         <tr>
+                            <td colspan="7" align="right">
+                               <strong>Kode Unik :
+                               </strong>
+                            </td>
+                            <td colspan="7">
+                                <strong>Rp. {{number_format($pesanan->kode_unik)}} 
+                                </strong>
+                             </td>
+
+                         </tr>
+                         <tr>
+                            <td colspan="7" align="right">
+                               <strong>Total Bayar :
+                               </strong>
+                            </td>
+                            <td colspan="7">
+                                <strong>Rp. {{number_format($pesanan->kode_unik+$pesanan->total_harga)}} 
+                                </strong>
+                             </td>
+
+                         </tr>
+                         <tr>
+                            <td colspan="6">
+                                 
+                             </td>
+                            <td colspan="6" align="right" class="">
+                                <a href="" type="button" class="btn button1">Check Out</a>
+                            </td>
+                           
+                         </tr>
                     </tbody>
                 </table>
             </div>

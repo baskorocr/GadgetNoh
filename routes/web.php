@@ -20,4 +20,5 @@ Route::get('/products', \App\Http\Livewire\ProductIndex::class)->name('products'
 Route::get('/products/brand/{brandsId}', \App\Http\Livewire\ProductBrand::class)->name('products.brand');
 Route::get('/products/{Id}', \App\Http\Livewire\ProductDetail::class)->name('products.detail');
 Route::get('keranjang', \App\Http\Livewire\Keranjang::class)->name('keranjang');
+Route::get('hapus/{Id}', [\App\Http\Livewire\Keranjang::class, 'destroy']);
 

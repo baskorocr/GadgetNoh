@@ -12,6 +12,20 @@ class Keranjang extends Component
     protected $pesanan;
     protected $pesanan_detail = [];
 
+    public function destroy($Id){
+        $p = PesananDetail::find($Id);
+        $pesananDetail = $p->total_harga;
+        $d = pesanan::find($p->pesanan_id);
+        $d -> total_harga = $d ->total_harga - $pesananDetail;
+        
+        $d->update();
+        $p->delete();
+
+       
+            return redirect(route('keranjang'));
+       
+    }
+
     public function cek(){
         if(!Auth::user()) {
             return redirect()->route('login');
@@ -32,7 +46,8 @@ class Keranjang extends Component
         
         return view('livewire.keranjang',[
             'pesanan'=> $this->pesanan,
-            'pesanan_detail'=>$this->pesanan_detail]) ->extends('layouts.app')->section('content');
+            'pesanan_detail'=>$this->pesanan_detail,
+          ]) ->extends('layouts.app')->section('content');
         
     }
 }
