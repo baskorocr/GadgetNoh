@@ -90,6 +90,7 @@
                             <td colspan="7">Data Kosong</td>
                         </tr>
                         @endforelse
+                        @if($pesanan->total_harga != 0)
                         <tr>
                             <td colspan="7" align="right">
                                <strong>Total Harga :
@@ -132,6 +133,7 @@
                             </td>
                            
                          </tr>
+                         @endif
                     </tbody>
                 </table>
             </div>

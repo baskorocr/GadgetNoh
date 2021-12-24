@@ -22,7 +22,8 @@ class Keranjang extends Component
         $p->delete();
 
        
-            return redirect(route('keranjang'));
+        return redirect(route('keranjang'));
+        session()->flash('message','Pesanan Dihapus' );
        
     }
 
