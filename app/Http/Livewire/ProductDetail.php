@@ -49,7 +49,7 @@ class ProductDetail extends Component
                 'kode_unik' => mt_rand(100, 999),
             ]);
             $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
-            $pesanan->kode_pemesanan = 'GN-'.$pesanan->id;
+            $pesanan->kode_pesanan = 'GN-'.$pesanan->id;
             $pesanan->update();
         }
         else {
@@ -60,7 +60,7 @@ class ProductDetail extends Component
             'product_id' => $this->product->id,
             'pesanan_id' => $pesanan->id,
             'jumlah_pesanan' => $this->jumlah_pesanan,
-            'limited_edition' => $this->model ? true : false,
+            'limitededition' => $this->model ? true : false,
             'model' => $this->model,
             'warna' => $this->warna,
             'total_harga' => $total_harga
