@@ -23,7 +23,10 @@
                                 @endforeach
                               <a class="dropdown-item" href="{{ url('products') }}">All Product</a>
                             </div>
-                          </li>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('history')}}" class="nav-link">History</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
