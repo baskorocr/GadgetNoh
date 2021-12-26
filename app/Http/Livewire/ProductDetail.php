@@ -25,20 +25,24 @@ class ProductDetail extends Component
 
     public function store(Request $request)
     {
-        
-        $this->validate($request, [
-            'jumlah_pesanan' => 'required'
-        ]);
+       
+       
+        $product = Product::find($request->id);
 
         if(!Auth::user()){
             return redirect()->route('login');
         }
-        if(!empty($request->model))
+
+        $request->validate([
+            'jumlah_pesanan' => 'required'
+        ]);
+        if($request->jumlah_pesanan>1)
         {
-            $total_harga = $request->jumlah_pesanan*$this->product->harga+$this->product->harga_limitededition;
+            
+            $total_harga = $request->jumlah_pesanan*$product->harga;
         }
         else{
-            $total_harga = $request->jumlah_pesanan*$this->product->harga;
+            $total_harga = $request->jumlah_pesanan*($product->harga+$product->harga_limitededition);
         }
         $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
 
@@ -58,10 +62,10 @@ class ProductDetail extends Component
             $pesanan->update();
         }
         PesananDetail::create([
-            'product_id' => $this->product->id,
+            'product_id' => $product->id,
             'pesanan_id' => $pesanan->id,
             'jumlah_pesanan' => $request->jumlah_pesanan,
-            'limitededition' => $request->model ? true : false,
+            'limitededition' => $request->jumlah_pesanan <= 1 ? true : false,
             'model' => $request->model,
             'warna' => $request->warna,
             'total_harga' => $total_harga

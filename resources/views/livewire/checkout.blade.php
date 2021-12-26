@@ -50,11 +50,11 @@
         <div class="col">
             <h4>Informasi Pengiriman</h4>
             <hr>
-            <form wire:submit.prevent="checkout">
-
+            <form action="{{url('tambahCheckout')}}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="">No. HP</label>
-                    <input id="nohp" type="text" class="form-control @error('nohp') is-invalid @enderror" wire:model="nohp" value="{{ old('nohp') }}" autocomplete="model" autofocus>
+                    <input id="nohp" name="nohp" type="text" class="form-control @error('nohp') is-invalid @enderror" value="{{ old('nohp') }}" autocomplete="model" autofocus>
                     @error('nohp')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -64,7 +64,7 @@
 
                 <div class="form-group">
                     <label for="">Alamat</label>
-                    <textarea wire:model="alamat" class="form-control @error('nama') is-invalid @enderror"></textarea>
+                    <textarea name="alamat" class="form-control @error('nama') is-invalid @enderror"></textarea>
 
                     @error('alamat')
                     <span class="invalid-feedback" role="alert">

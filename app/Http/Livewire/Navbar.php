@@ -15,18 +15,7 @@ class Navbar extends Component
     protected $listeners = [
         'masukKeranjang' => 'updateKeranjang'
     ];
-
-    public function updateKeranjang()
-    {
-        if(Auth::user())
-        {
-            $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
-            if($pesanan)
-            {
-                $this->jumlah = PesananDetail::where('pesanan_id',$pesanan->id)->count();
-            }
-        }
-    }
+    
 
     public function mount()
     {

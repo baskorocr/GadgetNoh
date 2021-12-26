@@ -3,9 +3,12 @@
 namespace App\Http\Livewire;
 
 use App\Models\Pesanan;
+use App\Models\PesananDetail;
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Http\Request;
 
 class Checkout extends Component
 {
@@ -30,29 +33,27 @@ class Checkout extends Component
         }
     }
 
-    public function checkout()
+    public function addcheckout(Request $request)
     {
-        $this->validate([
+        $request->validate([
             'nohp' => 'required',
             'alamat' => 'required'
         ]);
-
-
-        //simpan no hp alamat ke data user
         $user = User::where('id', Auth::user()->id)->first();
-        $user->nohp = $this->nohp;
-        $user->alamat = $this->alamat;
+        $user->nohp = $request->nohp;
+        $user->alamat = $request->alamat;
         $user->update();
 
-        //update data pesanan
+        
         $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
         $pesanan->status = 1;
         $pesanan->update();
 
-        $this->emit('masukKeranjang');
+
         session()->flash('message', "Sukses Checkout");
 
         return redirect()->route('history');
+        
     }
 
     public function render()

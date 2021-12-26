@@ -21,7 +21,8 @@ Route::get('/products/brand/{brandsId}', \App\Http\Livewire\ProductBrand::class)
 Route::get('/products/{Id}', \App\Http\Livewire\ProductDetail::class)->name('products.detail');
 Route::get('keranjang', \App\Http\Livewire\Keranjang::class)->name('keranjang');
 Route::get('hapus/{Id}', [\App\Http\Livewire\Keranjang::class, 'destroy']);
-Route::post('tambahKeranjang', [\App\Http\Livewire\ProductDetail::class,'store' ]);
+Route::post('tambahKeranjang', [\App\Http\Livewire\ProductDetail::class,'store']);
 Route::get('checkout', \App\Http\Livewire\Checkout::class)->name('checkout');
+Route::post('tambahCheckout', [\App\Http\Livewire\Checkout::class,'addcheckout']);
 Route::get('history', \App\Http\Livewire\History::class)->name('history');
 

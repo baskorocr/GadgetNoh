@@ -54,6 +54,7 @@
                 <div class="col">
                     <form action="{{url('tambahKeranjang')}}" method="POST">
                         @csrf
+                        <input type="hidden" value="{{$product->id}}" name="id">
                         <table class="table" style="border-top : hidden">
                             <tr>
                                 <td>Brand</td>
