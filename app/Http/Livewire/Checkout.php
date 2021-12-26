@@ -46,6 +46,17 @@ class Checkout extends Component
 
         
         $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
+        $pesananDetail = PesananDetail::where('pesanan_id',$pesanan->id)->get();
+        
+        foreach($pesananDetail as $pesananD){
+            $product = Product::where('id',$pesananD->product_id)->first();
+            $product->is_ready = $pesananD->jumlah_pesanan - $product->is_ready;
+            $product->update();
+
+        }
+      
+     
+       
         $pesanan->status = 1;
         $pesanan->update();
 
