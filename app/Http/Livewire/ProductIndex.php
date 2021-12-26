@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class ProductIndex extends Component
 {
    
+   
 
     public function render(Request $request)
      {

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class ProductDetail extends Component
 {
 
-    public $product, $warna, $jumlah_pesanan, $model;
+    public $product, $model, $jumlah_pesanan, $warna;
     public function mount($Id){
         $productDetail = Product::find($Id);
         if($productDetail){
@@ -65,7 +65,7 @@ class ProductDetail extends Component
             'warna' => $this->warna,
             'total_harga' => $total_harga
         ]);
-        $this->emit('masukKeranjang');
+        $this->emit('masukkanKeranjang');
         session()->flash('message', 'Sukses masuk keranjang');
         return redirect()->back();
     }
