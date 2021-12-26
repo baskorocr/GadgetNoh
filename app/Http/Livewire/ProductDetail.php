@@ -7,6 +7,8 @@ use App\Models\PesananDetail;
 use App\Models\Product;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
 
@@ -21,51 +23,51 @@ class ProductDetail extends Component
         }
     }
 
-    public function masukkanKeranjang()
+    public function store(Request $request)
     {
-        $this->validate([
+        
+        $this->validate($request, [
             'jumlah_pesanan' => 'required'
         ]);
-        
-        if(!Auth::user()) {
+
+        if(!Auth::user()){
             return redirect()->route('login');
         }
-
-        if(!empty($this->model)) {
-            $total_harga=$this->jumlah_pesanan*$this->product->harga+$this->product->harga_limitededition;
+        if(!empty($request->model))
+        {
+            $total_harga = $request->jumlah_pesanan*$this->product->harga+$this->product->harga_limitededition;
         }
-        else {
-            $total_harga=$this->jumlah_pesanan*$this->product->harga;
+        else{
+            $total_harga = $request->jumlah_pesanan*$this->product->harga;
         }
-
         $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
 
-        if(empty($pesanan))
-        {
+        if(empty($pesanan)){
             Pesanan::create([
                 'user_id' => Auth::user()->id,
                 'total_harga' => $total_harga,
                 'status' => 0,
-                'kode_unik' => mt_rand(100, 999),
+                'kode_unik' => mt_rand(100,999)
             ]);
-            $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
+            $pesanan = Pesanan::where('user_id',Auth::user()->id)->where('status',0)->first();
             $pesanan->kode_pesanan = 'GN-'.$pesanan->id;
             $pesanan->update();
         }
-        else {
+        else{
             $pesanan->total_harga = $pesanan->total_harga+$total_harga;
             $pesanan->update();
         }
         PesananDetail::create([
             'product_id' => $this->product->id,
             'pesanan_id' => $pesanan->id,
-            'jumlah_pesanan' => $this->jumlah_pesanan,
-            'limitededition' => $this->model ? true : false,
-            'model' => $this->model,
-            'warna' => $this->warna,
+            'jumlah_pesanan' => $request->jumlah_pesanan,
+            'limitededition' => $request->model ? true : false,
+            'model' => $request->model,
+            'warna' => $request->warna,
             'total_harga' => $total_harga
         ]);
-        $this->emit('masukkanKeranjang');
+        
+   
         session()->flash('message', 'Sukses masuk keranjang');
         return redirect()->back();
     }

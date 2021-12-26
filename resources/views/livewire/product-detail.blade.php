@@ -52,7 +52,8 @@
             </h4>
             <div class="row">
                 <div class="col">
-                    <form wire:submit.prevent="masukkanKeranjang">
+                    <form action="{{url('tambahKeranjang')}}" method="POST">
+                        @csrf
                         <table class="table" style="border-top : hidden">
                             <tr>
                                 <td>Brand</td>
@@ -75,7 +76,7 @@
                                 <td>Jumlah</td>
                                 <td>:</td>
                                 <td>
-                                    <input id="jumlah_pesanan" type="number" class="form-control @error('jumlah_pesanan') is-invalid @enderror" wire:model="jumlah_pesanan" value="{{ old('jumlah_pesanan') }}" required autocomplete="name" autofocus>
+                                    <input id="jumlah_pesanan" type="number" name="jumlah_pesanan" class="form-control @error('jumlah_pesanan') is-invalid @enderror"  value="{{ old('jumlah_pesanan') }}" required autocomplete="name" autofocus>
                                     @error('jumlah_pesanan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -97,7 +98,7 @@
                                 <td>Model</td>
                                 <td>:</td>
                                 <td>
-                                    <input id="model" type="text" class="form-control @error('model') is-invalid @enderror" wire:model="model" value="{{ old('model') }}" autocomplete="name" autofocus>
+                                    <input id="model" type="text" name="model" class="form-control @error('model') is-invalid @enderror"  value="{{ old('model') }}" autocomplete="name" autofocus>
                                     @error('model')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -109,7 +110,7 @@
                                 <td>Warna</td>
                                 <td>:</td>
                                 <td>
-                                    <input id="warna" type="text" class="form-control @error('warna') is-invalid @enderror" wire:model="warna" value="{{ old('warna') }}" autocomplete="name" autofocus>
+                                    <input id="warna" name="warna" type="text" class="form-control @error('warna') is-invalid @enderror"  value="{{ old('warna') }}" autocomplete="name" autofocus>
                                     @error('warna')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
