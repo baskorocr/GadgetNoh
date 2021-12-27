@@ -59,6 +59,9 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
+                            <div>
+                                <input type="hidden" value="user" name="role">
+                            </div>
                         </div>
 
                         <div class="form-group row mb-0">
