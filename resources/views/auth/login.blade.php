@@ -27,12 +27,25 @@
         .t{margin-bottom: 20px;}
         .btn{background-color: rgb(105, 214, 203);
         color: black;}
+        .l{
+            width: 450px;
+        }
     </style>
 </head>
 <body>
    <div class="container d-flex justify-content-center mt-3">
        <p class="p">GadgetNoh</p>
 </div>
+@if(session()->has('message'))
+<div class="container d-flex justify-content-center mb-2 l">
+    <div class="col-md-12">
+            <div class="alert alert-danger">
+            {{ session('message')}}
+        </div>
+        
+    </div>
+</div>
+@endif
 <div class="container d-flex justify-content-center mt-2 mb-5 z" >
     
     <form class="f" method="POST" action="{{ route('login') }}">
