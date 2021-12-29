@@ -73,9 +73,10 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-success btn-block"> <i class="fas fa-arrow-right"></i> Checkout </button>
+                <button type="submit" class="btn btn-success btn-block btn-submit"> <i class="fas fa-arrow-right"></i> Checkout </button>
             </form>
         </div>
 
     </div>
 </div>
+
