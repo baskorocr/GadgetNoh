@@ -1,9 +1,15 @@
 <div>
 <nav class="navbar navbar-expand-md navbar-light bg-blue shadow-sm" id="nav">
             <div class="container">
+                @if($role == 'admin')
+                <a class="navbar-brand" style="color:black" href="{{ url('/admin/home') }}">
+                    <strong>Gadget</strong>Noh
+                </a>
+                @else
                 <a class="navbar-brand" style="color:black" href="{{ url('/') }}">
                     <strong>Gadget</strong>Noh
                 </a>
+                @endif
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
@@ -12,6 +18,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @if($role != 'admin')
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,6 +35,7 @@
                             <a href="{{route('history')}}" class="nav-link">History</a>
                         </li>
                     </ul>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

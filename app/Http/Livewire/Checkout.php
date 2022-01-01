@@ -91,5 +91,6 @@ apabila sudah melakukan tranfer pembayaran, silakan konfirmasi dengan mengirim b
     {
         return view('livewire.checkout')->extends('layouts.app')->section('content');
         
+        
     }
 }

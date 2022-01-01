@@ -26,4 +26,5 @@ Route::post('tambahKeranjang', [\App\Http\Livewire\ProductDetail::class,'store']
 Route::get('checkout', \App\Http\Livewire\Checkout::class)->name('checkout');
 Route::post('tambahCheckout', [\App\Http\Livewire\Checkout::class,'addcheckout']);
 Route::get('history', \App\Http\Livewire\History::class)->name('history');
-Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('admin/cek', [HomeController::class, 'adminHome'])->name('admin.cek')->middleware('is_admin');
+Route::get('admin/home', \App\Http\Livewire\AdminHome::class)->name('admin.home');
