@@ -40,6 +40,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        @if($role != 'admin')
                         <li class="nav-item">
                             <a class="nav-link" style="color:black" href="{{route('keranjang')}}">
                                 keranjang <i class="fas fa-shopping-cart"></i>
@@ -48,6 +49,7 @@
                             @endif
                         </a>
                         </li>
+                        @endif
                         @guest
                         @if (Route::has('login'))
                         <li class="nav-item">
