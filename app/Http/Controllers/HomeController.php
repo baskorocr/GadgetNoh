@@ -27,7 +27,7 @@ class HomeController extends Controller
     }
     public function adminHome()
     {
-        return redirect()->route('admin.home');
+        return redirect()->route('admin.product');
     }
 
 }

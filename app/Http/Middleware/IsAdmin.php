@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IsAdmin
 {
@@ -16,11 +17,19 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->role == 'admin')
-        {
-            return $next($request);
+        if(!Auth::user()) {
+            return redirect()->route('login');
         }
-        return redirect('home')->with('error',"You don't have admin access.");
+        else{
+            if(auth()->user()->role == 'admin')
+            {
+                return $next($request);
+            }
+        }
+        
+       
+
+        return redirect()->back();
         
     }
 }
