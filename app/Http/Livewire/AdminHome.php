@@ -13,6 +13,7 @@ class AdminHome extends Component
         session()->flash('message', 'Barang berhasil dihapus');
         return redirect()->back();
     }
+
     public function render()
     {
        

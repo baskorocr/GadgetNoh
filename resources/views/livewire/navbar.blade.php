@@ -37,7 +37,7 @@
                             <a href="{{ url('/admin/product') }}" class="nav-link">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Tambah Product</a>
+                            <a href="{{route('createproduct')}}" class="nav-link">Tambah Product</a>
                         </li>
                     </ul>
                     @endif

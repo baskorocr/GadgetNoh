@@ -95,3 +95,8 @@
     max-width: 150px;
     max-height: 200px;
 }
+
+.create{
+    border: 0.3px solid rgb(105, 214, 203);
+    border-radius: 5px;
+}

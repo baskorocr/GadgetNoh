@@ -29,3 +29,5 @@ Route::get('history', \App\Http\Livewire\History::class)->name('history');
 Route::get('admin/cek', [HomeController::class, 'adminHome'])->name('admin.cek');
 Route::get('admin/product', \App\Http\Livewire\AdminHome::class)->name('admin.product')->middleware('is_admin');
 Route::get('hapusItem/{Id}', [\App\Http\Livewire\AdminHome::class, 'destroy']);
+Route::get('createproduct', \App\Http\Livewire\CreateProduct::class)->name('createproduct');
+Route::post('addproduct',[\App\Http\Livewire\CreateProduct::class,'store']);
