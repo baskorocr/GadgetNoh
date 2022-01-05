@@ -4,10 +4,12 @@ namespace App\Http\Livewire;
 use App\Models\Product;
 use App\Models\Brand;
 use Livewire\Component;
-use Livewire\Request;
+use Illuminate\Http\Request;
+use Livewire\WithFileUploads;
 
 class CreateProduct extends Component
 {
+    use WithFileUploads;
     public $nama,$harga,$harga_le,$jenis,$gambar,$brand;
     public function render()
     {
@@ -18,6 +20,13 @@ class CreateProduct extends Component
 
     public function store(Request $request)
     {
+        if($request->file('gambar')){
+            $file = $request->file('gambar');
+            $nama_file = str_replace(" ","", $file->getClientOriginalName());
+            $file->move('asset\product',$nama_file);
+            $request->gambar = $nama_file;
+        }
+
         Product::create([
             'nama' => $request->nama,
             'harga' => $request->harga,
@@ -29,6 +38,6 @@ class CreateProduct extends Component
         ]);
         
         session()->flash('message', 'Sukses masuk Database');
-        return redirect()->back();
+        return redirect()->route('admin.product');
     }
 }

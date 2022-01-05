@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $fillable = [
+        'nama',
+        'harga',
+        'harga_limitededition',
+        'is_ready',
+        'jenis',
+        'gambar',
+        'brand_id'
+    ];
     public function brand()
     {
         return $this->belongsTo(Brand::class, 'brand_id', 'id');
