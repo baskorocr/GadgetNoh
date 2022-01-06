@@ -10,7 +10,7 @@ use Livewire\WithFileUploads;
 class CreateProduct extends Component
 {
     use WithFileUploads;
-    public $nama,$harga,$harga_le,$jenis,$gambar,$brand;
+    public $nama,$harga,$harga_le,$jenis,$gambar,$brand,$stok;
     public function render()
     {
         return view('livewire.create-product',[
@@ -31,7 +31,7 @@ class CreateProduct extends Component
             'nama' => $request->nama,
             'harga' => $request->harga,
             'harga_limitededition' => $request->harga_le,
-            'is_ready' => 1,
+            'is_ready' => $request->stok,
             'jenis' => $request->jenis,
             'gambar' => $request->gambar,
             'brand_id' => $request->brand

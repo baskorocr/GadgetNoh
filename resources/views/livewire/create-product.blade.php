@@ -21,6 +21,10 @@
                 <input class="form-control" type="text" placeholder="" name="harga_le">
             </div>
             <div class="form-group mt-3">
+                <label>Stok Barang</label>
+                <input class="form-control" type="text" placeholder="" name="stok">
+            </div>
+            <div class="form-group mt-3">
                 <label>Jenis</label>
                 <input class="form-control" type="text" placeholder="" name="jenis">
             </div>
