@@ -6,7 +6,7 @@
        </div>
        
        <div class="col">
-            <form action="{{url('addproduct')}}" method="post">
+            <form action="{{url('addproduct')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group mt-3">
                 <label>Nama Product</label>

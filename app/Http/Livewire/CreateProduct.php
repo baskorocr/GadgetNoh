@@ -20,6 +20,7 @@ class CreateProduct extends Component
 
     public function store(Request $request)
     {
+        
         if($request->file('gambar')){
             $file = $request->file('gambar');
             $nama_file = str_replace(" ","", $file->getClientOriginalName());
