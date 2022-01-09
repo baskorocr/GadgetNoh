@@ -53,6 +53,9 @@ class Update extends Component
             $product->harga = $request->harga;
             $product->update();
         }
+
+        session()->flash('message', 'Data Berhasil dirubah');
+        return redirect()->route('admin.product');
        
     }
     public function render()
