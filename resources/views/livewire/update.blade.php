@@ -13,14 +13,17 @@
                 <div class="form-group mt-3">
                     <label>Rubah Harga</label>
                     <input class="form-control" type="text" placeholder="" name="harga">
+                    <small id="hargalHelp" class="form-text text-muted">Harga saat ini adalah {{number_format($product->harga)}}.</small>
                 </div>
                 <div class="form-group mt-3">
                     <label>Rubah Harga Limited Edition</label>
                     <input class="form-control" type="text" placeholder="" name="harga_le">
+                    <small id="LelHelp" class="form-text text-muted">Harga Limited Edition saat ini adalah {{number_format($product->harga_limitededition)}}.</small>
                 </div>
                 <div class="form-group mt-3">
                     <label>Rubah Stok Barang</label>
                     <input class="form-control" type="text" placeholder="" name="stok">
+                    <small id="stoklHelp" class="form-text text-muted">Stok Barang saat ini adalah {{number_format($product->is_ready)}}.</small>
                 </div>
                 <div class="form-group mt-3">
                     <label>Rubah Gambar</label>
