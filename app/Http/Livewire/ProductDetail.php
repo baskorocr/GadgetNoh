@@ -25,9 +25,9 @@ class ProductDetail extends Component
 
     public function store(Request $request)
     {
-       
-       
+            
         $product = Product::find($request->id);
+ 
 
         if(!Auth::user()){
             return redirect()->route('login');

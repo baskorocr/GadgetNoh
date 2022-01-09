@@ -31,3 +31,5 @@ Route::get('admin/product', \App\Http\Livewire\AdminHome::class)->name('admin.pr
 Route::get('hapusItem/{Id}', [\App\Http\Livewire\AdminHome::class, 'destroy']);
 Route::get('createproduct', \App\Http\Livewire\CreateProduct::class)->name('createproduct');
 Route::post('addproduct',[\App\Http\Livewire\CreateProduct::class,'store']);
+Route::get('edit/{Id}', \App\Http\Livewire\Update::class)->name('edit');
+Route::post('update', [\App\Http\Livewire\Update::class,'update']);

@@ -33,7 +33,7 @@
                 <input class="form-control" type="text" placeholder="" name="berat">
             </div>
             <div class="form-group mt-3">
-                <label>Nama Gambar</label>
+                <label>Upload Gambar</label>
                 <input class="form-control" type="file" placeholder="" name="gambar">
             </div>
             <div class="form-group mt-3">

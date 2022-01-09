@@ -40,7 +40,7 @@
                                 </td>
                                 <td>Rp.{{number_format($product->harga)}}</td>
                                 <td>{{$product->is_ready}}</td>
-                                <td><a href="#" type="button" class="btn btn-primary">Update</a></td>
+                                <td><a href="{{url('edit')}}/{{$product->id}}" type="button" class="btn btn-primary">Update</a></td>
                                
                             </tr>
                             @endforeach
