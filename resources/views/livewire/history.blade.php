@@ -51,9 +51,13 @@
                             <td>
                                 <?php $pesanan_details = \App\Models\PesananDetail::where('pesanan_id', $pesanan->id)->get();?>
                                 @foreach($pesanan_details as $pesanan_detail)
-                                    <img src="{{ url('asset/product')}}/{{$pesanan_detail->product->gambar}}" alt="" class="img-fluid" width="60">
-                                    {{$pesanan_detail->product->nama}}
-                                    <br>
+                                    
+                                        @if($pesanan_detail->product->gambar != null){
+                                            <img src="{{ url('asset/product')}}/{{$pesanan_detail->product->gambar}}" alt="" class="img-fluid" width="60">
+                                            {{$pesanan_detail->product->nama}}
+                                            <br>
+                                        @endif
+                                                                      
                                 @endforeach
                             </td>
                             <td>
