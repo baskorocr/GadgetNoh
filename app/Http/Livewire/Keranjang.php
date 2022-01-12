@@ -44,7 +44,7 @@ class Keranjang extends Component
     public function render()
     {
       
-
+        $this->cek();
 
         return view('livewire.keranjang', [
             'pesanan' => $this->pesanan,
