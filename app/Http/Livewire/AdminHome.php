@@ -11,11 +11,10 @@ class AdminHome extends Component
     public function destroy($Id){
         
         $p = Product::find($Id);
-        File::delete('asset/product/'.$p->gambar);
         $p->delete();
         
         session()->flash('message', 'Barang berhasil dihapus');
-        return redirect()->back();
+        return redirect()->route('admin.product');
     }
 
     public function render()
