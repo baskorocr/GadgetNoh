@@ -49,15 +49,20 @@
                             <td>{{$pesanan->created_at}}</td>
                             <td>{{$pesanan->kode_pesanan}}</td>
                             <td>
-                                <?php $pesanan_details = \App\Models\PesananDetail::where('pesanan_id', $pesanan->id)->get();?>
-                                @foreach($pesanan_details as $pesanan_detail)
-                                    
-                                        @if($pesanan_detail->product->gambar != null){
-                                            <img src="{{ url('asset/product')}}/{{$pesanan_detail->product->gambar}}" alt="" class="img-fluid" width="60">
-                                            {{$pesanan_detail->product->nama}}
-                                            <br>
+                                <?php $pesanans_details = \App\Models\PesananDetail::where('pesanan_id', $pesanan->id)->get();?>
+                                @foreach($pesanans_details as $pesanan_detail)
+                                     
+
+                                        @if(empty($pesanan_detail->product->gambar))
+                                            <img src="{{ url('asset/product/images.jpeg')}}" alt="" class="img-fluid" width="60">
+                                            <p>Product Sudah tidak tersedia</p>
+                                            <br> 
+                                        @else
+                                        <img src="{{ url('asset/product')}}/{{$pesanan_detail->product->gambar}}" alt="" class="img-fluid" width="60"> 
+                                        {{$pesanan_detail->product->nama}}
+                                        <br> 
                                         @endif
-                                                                      
+                                                                
                                 @endforeach
                             </td>
                             <td>

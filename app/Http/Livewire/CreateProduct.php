@@ -6,6 +6,7 @@ use App\Models\Brand;
 use Livewire\Component;
 use Illuminate\Http\Request;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Validator;
 
 class CreateProduct extends Component
 {
@@ -17,6 +18,7 @@ class CreateProduct extends Component
             'brands' => Brand::all()])
         ->extends('layouts.app')->section('content');
     }
+
 
     public function store(Request $request)
     {

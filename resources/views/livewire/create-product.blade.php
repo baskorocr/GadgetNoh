@@ -10,35 +10,35 @@
             @csrf
             <div class="form-group mt-3">
                 <label>Nama Product</label>
-                <input class="form-control" type="text" placeholder="Enter Name" name="nama">
+                <input class="form-control" type="text" placeholder="Enter Name" required autocomplete="name" name="nama">
             </div>
             <div class="form-group mt-3">
                 <label>Harga</label>
-                <input class="form-control" type="text" placeholder="" name="harga">
+                <input class="form-control" type="text" placeholder="" required autocomplete="harga" name="harga">
             </div>
             <div class="form-group mt-3">
                 <label>Harga Limited Edition</label>
-                <input class="form-control" type="text" placeholder="" name="harga_le">
+                <input class="form-control" type="text" placeholder="" required autocomplete="harga_le" name="harga_le">
             </div>
             <div class="form-group mt-3">
                 <label>Stok Barang</label>
-                <input class="form-control" type="text" placeholder="" name="stok">
+                <input class="form-control" type="text" placeholder="" required autocomplete="stok" name="stok">
             </div>
             <div class="form-group mt-3">
                 <label>Jenis</label>
-                <input class="form-control" type="text" placeholder="" name="jenis">
+                <input class="form-control" type="text" placeholder="" required autocomplete="jenis" name="jenis">
             </div>
             <div class="form-group mt-3">
                 <label>Berat</label>
-                <input class="form-control" type="text" placeholder="" name="berat">
+                <input class="form-control" type="text" placeholder="" required autocomplete="berat" name="berat">
             </div>
             <div class="form-group mt-3">
                 <label>Upload Gambar</label>
-                <input class="form-control" type="file" placeholder="" name="gambar">
+                <input class="form-control" type="file" placeholder="" required autocomplete="gambar" name="gambar">
             </div>
             <div class="form-group mt-3">
                 <label>Merk</label>
-                <select class="form-control" name="brand">
+                <select class="form-control" required autocomplete="brand" name="brand">
                     <option>--Pilih Merk--</option>
                     @foreach ($brands as $item)
                         <option value="{{$item->id}}">{{$item->nama}}</option>
