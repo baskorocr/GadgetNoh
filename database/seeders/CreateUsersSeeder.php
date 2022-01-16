@@ -17,9 +17,9 @@ class CreateUsersSeeder extends Seeder
         
         DB::table('users')->insert([
             'name'=>'Admin',
-               'email'=>'mahesa.23@students.amikom.ac.id',
+               'email'=>'admingadget@gmail.com',
                 'role'=>'admin',
-               'password'=> bcrypt('asu123ok'),
+               'password'=> bcrypt('admin1234'),
         ]);
     }
 }
