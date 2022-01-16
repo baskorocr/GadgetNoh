@@ -14,7 +14,7 @@ class AdminHome extends Component
         $p->delete();
         
         session()->flash('message', 'Barang berhasil dihapus');
-        return redirect()->route('admin.product');
+        return redirect()->route('home');
     }
 
     public function render()
